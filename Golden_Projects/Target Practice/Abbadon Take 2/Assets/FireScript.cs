@@ -9,23 +9,15 @@ public class FireScript : MonoBehaviour {
 	
 	
 	float timer;
-	//just started setting this up***
-	//Ray shootRay;
 	RaycastHit shootHit;
-	int shootableMask;
-	ParticleSystem gunParticles;
 	LineRenderer gunLine;
-	AudioSource gunAudio;
 	Light gunLight;
 	float effectsDisplayTime = 0.2f;
 	
 	
 	void Awake ()
 	{
-		shootableMask = LayerMask.GetMask ("Shootable");
-		gunParticles = GetComponent<ParticleSystem> ();
 		gunLine = GetComponent <LineRenderer> ();
-		gunAudio = GetComponent<AudioSource> ();
 		gunLight = GetComponent<Light> ();
 	}
 	
