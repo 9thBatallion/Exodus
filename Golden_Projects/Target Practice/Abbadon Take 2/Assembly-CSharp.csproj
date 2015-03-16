@@ -50,7 +50,7 @@
      <Compile Include="Assets\Scripts\BulletDestroy.cs" />
      <Compile Include="Assets\Scripts\MovementScript.cs" />
      <Compile Include="Assets\Scripts\ShootScript.cs" />
-     <Compile Include="Assets\ShrapnelDestroy.cs" />
+     <Compile Include="Assets\Scripts\ShrapnelDestroy.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
