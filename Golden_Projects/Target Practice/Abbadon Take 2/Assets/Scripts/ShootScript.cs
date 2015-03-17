@@ -26,23 +26,13 @@ public class ShootScript : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetButton ("Fire1")) {
-		
 			fireRound();
-
-			//CapsuleCollider bulletCollider = new CapsuleCollider();
-			//bulletCollider.isTrigger = true;
-			//bulletCollider.direction = colliderdirection;
-			//GetComponent<Collider>().attachedRigidbody.AddForce(vX,vY,vZ);
-
-
-
 		}
 
 		if (Input.GetButtonDown ("Fire2")) {
 			for(int i = 0; i <= bulletBurstNumber; i++)
 			{
 				fireRound();
-
 			}
 		}
 	}
@@ -52,12 +42,10 @@ public class ShootScript : MonoBehaviour {
 		Vector3 shootDirection = new Vector3();
 		
 		shootDirection = transform.TransformPoint(new Vector3(vX, vY, vZ) * shotDirection);
-		//Instantiate (Missle);
-		GameObject bullet = Instantiate (Missle);//GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		GameObject bullet = Instantiate (Missle);
 		bullet.transform.position = shootDirection;
 		bullet.transform.rotation = transform.rotation;
-		//bullet.transform.localScale += new Vector3(scaleX, scaleY, scaleZ);
-		//bullet.AddComponent <BulletDestroy>();
+
 		Rigidbody bulletRigidBody = bullet.AddComponent<Rigidbody>();
 		bulletRigidBody.mass = bulletMass;
 		bulletRigidBody.velocity = transform.TransformDirection(Vector3.up * bulletVelocity);
