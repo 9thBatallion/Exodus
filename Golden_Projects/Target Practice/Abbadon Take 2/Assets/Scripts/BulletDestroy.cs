@@ -11,7 +11,7 @@ public class BulletDestroy : MonoBehaviour {
 	private Vector3 explosionPos;
 	public float radius = 5.0F;
 	public float power = 10.0F;
-
+	public int missleDamage;
 	// Use this for initialization
 	void Start () {
 		initialCounter = 0;
@@ -37,34 +37,15 @@ public class BulletDestroy : MonoBehaviour {
 				shrapnel.transform.position = explosionPos;
 			}
 			
-			Vector3 expliosionPos = transform.position;
+			explosionPos = transform.position;
 			Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
 			foreach (Collider hit in colliders) {
 				if (hit && hit.GetComponent<Rigidbody> ())
-					hit.GetComponent<Rigidbody> ().AddExplosionForce (power, expliosionPos, radius, 3.0F);
+					hit.GetComponent<Rigidbody> ().AddExplosionForce (power, explosionPos, radius, 3.0F);
 			}
 			Destroy (otherObj);
 		} else if (otherObj.tag == "Sharpnel" || gameObject.tag == "Sharpnel") {
 			Destroy (otherObj);
 		}
 	}
-	/*
-		if (otherObj.tag == "Missle" && gameObject.tag != "Missle") {
-			for (int i=0; i <= 5; i++) {
-				GameObject shrapnel = Instantiate (Shrapnel);
-				explosionPos = otherObj.transform.position;
-				shrapnel.transform.position = explosionPos;
-			}
-
-			Vector3 expliosionPos = transform.position;
-			Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
-			foreach (Collider hit in colliders) {
-				if (hit && hit.GetComponent<Rigidbody> ())
-					hit.GetComponent<Rigidbody> ().AddExplosionForce (power, expliosionPos, radius, 3.0F);
-			}
-			Destroy (otherObj);
-		} else if (otherObj.tag == "Sharpnel" || gameObject.tag == "Sharpnel") {
-			Destroy (otherObj);
-		}
-	 */
 }
